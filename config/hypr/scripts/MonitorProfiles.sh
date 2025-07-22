@@ -34,7 +34,7 @@ if [[ -n "$chosen_file" ]]; then
     full_path="$monitor_dir/$chosen_file.conf"
     cp "$full_path" "$target"
     
-    notify-send -u low -i "$iDIR/ja.png" "$chosen_file" "Monitor Profile Loaded"
+    notify-send -u low -i "$iDIR/bell.png" "$chosen_file" "Monitor Profile Loaded"
 fi
 
 sleep 1

@@ -52,7 +52,7 @@ no-effects() {
 	sleep 2
 	"$SCRIPTSDIR/Refresh.sh"
 
-    notify-send -u low -i "$iDIR/ja.png" "No wallpaper" "effects applied"
+    notify-send -u low -i "$iDIR/bell.png" "No wallpaper" "effects applied"
     # copying wallpaper for rofi menu
     cp "$wallpaper_current" "$wallpaper_output"
 }
@@ -73,7 +73,7 @@ main() {
             no-effects
         elif [[ "${effects[$choice]+exists}" ]]; then
             # Apply selected effect
-            notify-send -u normal -i "$iDIR/ja.png"  "Applying:" "$choice effects"
+            notify-send -u normal -i "$iDIR/bell.png"  "Applying:" "$choice effects"
             eval "${effects[$choice]}"
             
             # intial kill process
@@ -90,7 +90,7 @@ main() {
             sleep 1
             # Refresh rofi, waybar, wallust palettes
             "${SCRIPTSDIR}/Refresh.sh"
-            notify-send -u low -i "$iDIR/ja.png" "$choice" "effects applied"
+            notify-send -u low -i "$iDIR/bell.png" "$choice" "effects applied"
         else
             echo "Effect '$choice' not recognized."
         fi
@@ -126,14 +126,14 @@ if [[ -n "$choice" ]]; then
 
     # Check if terminal exists
     if ! command -v "$terminal" &>/dev/null; then
-    notify-send -i "$iDIR/ja.png" "Missing $terminal" "Install $terminal to enable setting of wallpaper background"
+    notify-send -i "$iDIR/bell.png" "Missing $terminal" "Install $terminal to enable setting of wallpaper background"
     exit 1
     fi
 
       # Open terminal and set the wallpaper
     $terminal -e bash -c "echo 'Enter your password to set wallpaper as SDDM Background'; \
     sudo cp -r $wallpaper_output '$sddm_simple/Backgrounds/default' && \
-    notify-send -i '$iDIR/ja.png' 'SDDM' 'Background SET'"
+    notify-send -i '$iDIR/bell.png' 'SDDM' 'Background SET'"
     fi
   fi
 fi

@@ -1,6 +1,3 @@
-/* Integrating Wallust and More tweaks */
-
-
 configuration {
     show-icons:                     true;
     display-drun: 		            "";
